@@ -6,7 +6,7 @@ contract Transactions {
 
     event Transfer(
         address from,
-        address reciever,
+        address receiver,
         uint256 amount,
         string message,
         uint256 timestamp,
@@ -15,7 +15,7 @@ contract Transactions {
 
     struct TransferStruct {
         address sender;
-        address reciever;
+        address receiver;
         uint256 amount;
         string message;
         uint256 timestamp;
@@ -25,7 +25,7 @@ contract Transactions {
     TransferStruct[] transactions;
 
     function addToBlockchain(
-        address payable reciever,
+        address payable receiver,
         uint256 amount,
         string memory message,
         string memory keyword
@@ -34,7 +34,7 @@ contract Transactions {
         transactions.push(
             TransferStruct(
                 msg.sender,
-                reciever,
+                receiver,
                 amount,
                 message,
                 block.timestamp,
@@ -44,7 +44,7 @@ contract Transactions {
 
         emit Transfer(
             msg.sender,
-            reciever,
+            receiver,
             amount,
             message,
             block.timestamp,
