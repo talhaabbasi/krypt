@@ -25,3 +25,5 @@ typechain
 #Hardhat files
 cache
 artifacts
+
+./src/utils/constants.js

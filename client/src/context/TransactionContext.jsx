@@ -20,12 +20,16 @@ const getEthereumContract = () => {
   });
 };
 
-export const TransactionProvider = ({ children }) => {
+export const TransactionsProvider = ({ children }) => {
   const [currentAccount, setCurrentAccount] = useState("");
   const checkIfWalletIsConnected = async () => {
     if (!ethereum) return alert("Please install MetaMask");
 
     const accounts = await ethereum.request({ method: "eth_accounts" });
+
+    if (accounts.length) {
+      setCurrentAccount(accounts[0]);
+    }
     console.log(accounts);
   };
 
